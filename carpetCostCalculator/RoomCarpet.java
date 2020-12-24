@@ -1,18 +1,20 @@
 package com.carpetCostCalculator;
 
+
 public class RoomCarpet extends RoomDimension {
 
-	double cost;
-	public static RoomDimension roomDimension;
-
-	public RoomCarpet(double length, double width, double cost) {
+	
+	public CarpetType carpetType;
+	public RoomCarpet(double length, double width, String choice) {
 		super(length, width);
-		this.cost = cost;
+		this.carpetType = new CarpetType(choice); 
+		
 	}
 
 	public double calculateCost() {
 		double area = super.calculateRoomDimension();
-		return area * cost;
+		double carpetCost = carpetType.getCarpetCost();
+		return area * carpetCost;
 	}
 
 }
